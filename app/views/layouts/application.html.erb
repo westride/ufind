@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ufind</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <h1>All Finds </h1>
+   <nav>
+
+     <%= link_to("Create a Find!", new_user_path) %>
+     <%= link_to("All Finds",users_path) %>
+
+   <% if login_signed_in? %>
+     Signed in as: <%= current_login.email %>
+     <%= link_to("Log Out", destroy_login_session_path, method: :delete) %>
+   <% else %>
+      <%= link_to("Sign Up", new_login_registration_path) %>
+      <%= link_to("Log In",  new_login_session_path) %>
+   <% end %>
+  </nav>
+
+ <%if flash.notice %>
+<div class="notice"> <%= flash.notice %> </div>
+ <% end %>
+
+ <%if flash.alert %>
+<div class="alert"> <%= flash.alert %> </div>
+ <% end %>
+<%= yield %>
+
+
+</body>
+
+
+<h5> Copyright 2017 </h5>
+</html>
+
+
+
+
+

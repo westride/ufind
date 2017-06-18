@@ -1,0 +1,11 @@
+<h1> Welcome to Ufind, where we make things happen together! </h1>
+<h2> Finds of The Day </h2>
+<% if @users.any? %>
+ <% @users.each do |user| %>
+<div class="eachuser"> <h3><%= link_to(user.title, user_path(user)) %></h3>
+    <p><%= user.body %> </p> </div>
+  <% end %>
+ <% else %>
+   <p> There are no new find at this moment. </p>
+  <% end %>
+

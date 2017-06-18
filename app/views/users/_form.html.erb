@@ -1,0 +1,26 @@
+ <% if @user.errors.any? %>
+
+  <div class="errors1">
+ <P> There were the following errors here </P>
+  <ul>
+    <%= @user.errors.full_messages.each do |error| %>
+    <li> <%= error %> </li>
+    <% end %>
+  </ul>
+ </div>
+   <% end %>
+
+
+<%= form_for(@user) do |f| %>
+   <div>
+    <%= f.label(:title) %>
+    <%= f.text_field(:title,placeholder: "Enter text here") %>
+    </div>
+    <div>
+      <%= f.label(:body) %>
+      <%= f.text_area(:body,placeholder:"Enter body here") %>
+      </div>
+      <div>
+        <%= f.submit %>
+      </div>
+      <% end %>
